@@ -11,10 +11,83 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500&family=Parisienne&display=swap">
+<!-- El estilo se decide antes de pintar nada: si se pusiera desde script.js
+     se vería un parpadeo del estilo viejo al nuevo. Manda ?estilo= de la URL;
+     si no, lo que diga datos.js (y por defecto, «papel»). -->
+<script src="datos.js?v=1794944188"></script>
+<script>
+  (function () {
+    var p = new URLSearchParams(location.search).get('estilo');
+    var e = (p === 'fiesta' || p === 'papel') ? p : null;
+    var d = (window.DATOS && DATOS.estilo) || 'papel';
+    document.documentElement.dataset.estilo = e || d;
+    if (e) try { sessionStorage.setItem('estilo', e); } catch (x) {}
+  })();
+</script>
 <link rel="preload" as="image" href="assets/apertura-poster.webp">
-<link rel="stylesheet" href="styles.css?v=1794937501">
+<link rel="stylesheet" href="styles.css?v=1794944188">
 </head>
 <body class="sin-abrir">
+
+<!-- ══════════════ ADORNOS ══════════════
+     Dibujados, no fotografiados: así los mismos cuatro sirven a los dos
+     estilos. El CSS decide color, tamaño y fuerza, de modo que en «papel»
+     pasan por acuarela apagada y en «fiesta» por plata y purpurina. -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+ <defs>
+
+  <clipPath id="c-esfera"><circle cx="50" cy="52" r="40"/></clipPath>
+  <symbol id="ad-esfera" viewBox="0 0 100 100">
+    <radialGradient id="g-esfera" cx="34%" cy="26%" r="82%">
+      <stop offset="0"   stop-color="#FFFFFF"/>
+      <stop offset=".30" stop-color="var(--ad-claro,#EDE7E9)"/>
+      <stop offset=".70" stop-color="var(--ad-medio,#BCB2B7)"/>
+      <stop offset="1"   stop-color="var(--ad-hondo,#857A80)"/>
+    </radialGradient>
+    <circle cx="50" cy="52" r="40" fill="url(#g-esfera)"/>
+    <g clip-path="url(#c-esfera)" stroke="#FFFFFF" stroke-opacity=".5" stroke-width=".9" fill="none">
+      <!-- los meridianos van en elipses: rectos, la esfera parecería una reja -->
+      <ellipse cx="50" cy="52" rx="10" ry="40"/>
+      <ellipse cx="50" cy="52" rx="22" ry="40"/>
+      <ellipse cx="50" cy="52" rx="32" ry="40"/>
+      <path d="M10 36h80M10 44h80M10 52h80M10 60h80M10 68h80M14 28h72M14 76h72"/>
+    </g>
+    <ellipse cx="36" cy="35" rx="12" ry="8" fill="#FFFFFF" opacity=".5"
+             transform="rotate(-26 36 35)"/>
+    <path d="M50 12v-9" stroke="var(--ad-hondo,#C9BFC4)" stroke-width="1.6" stroke-linecap="round"/>
+  </symbol>
+
+  <symbol id="ad-estrella" viewBox="0 0 100 100">
+    <path fill="currentColor"
+          d="M50 7 61.8 38.2 95 39.4 68.6 59.6 78 91.5 50 72.4 22 91.5 31.4 59.6 5 39.4 38.2 38.2Z"/>
+    <path fill="#FFFFFF" opacity=".42"
+          d="M50 7 61.8 38.2 95 39.4 68.6 59.6 50 46Z"/>
+  </symbol>
+
+  <symbol id="ad-destello" viewBox="0 0 100 100">
+    <path fill="currentColor"
+          d="M50 2c3 26 19 42 46 48-27 6-43 22-46 48-3-26-19-42-46-48 27-6 43-22 46-48Z"/>
+  </symbol>
+
+  <symbol id="ad-mono" viewBox="0 0 100 100">
+    <g fill="currentColor">
+      <path d="M46 52c-6 12-12 20-20 28 7 2 12 1 16-3 5-5 8-14 9-23Z"/>
+      <path d="M54 52c6 12 12 20 20 28-7 2-12 1-16-3-5-5-8-14-9-23Z"/>
+      <path d="M48 48C38 36 24 30 14 34c-9 4-8 16 2 20 9 4 23 1 32-6Z"/>
+      <path d="M52 48c10-12 24-18 34-14 9 4 8 16-2 20-9 4-23 1-32-6Z"/>
+    </g>
+    <path d="M44 42c-7-4-16-6-22-4" stroke="#FFFFFF" stroke-opacity=".45"
+          stroke-width="2.4" fill="none" stroke-linecap="round"/>
+    <path d="M56 42c7-4 16-6 22-4" stroke="#FFFFFF" stroke-opacity=".45"
+          stroke-width="2.4" fill="none" stroke-linecap="round"/>
+    <ellipse cx="50" cy="49" rx="6.5" ry="7.5" fill="currentColor"/>
+    <ellipse cx="50" cy="49" rx="6.5" ry="7.5" fill="#000" opacity=".18"/>
+    <path d="M44 42c2-2 5-3 8-3" stroke="#FFFFFF" stroke-opacity=".5"
+          stroke-width="1.6" fill="none" stroke-linecap="round"/>
+  </symbol>
+
+ </defs>
+</svg>
 
 <p class="salta"><a href="#contenido">Saltar al contenido de la invitación</a></p>
 
@@ -99,6 +172,8 @@
 <section class="seccion s-soffia" id="soffia">
   <div class="costura costura-arriba" aria-hidden="true"></div>
   <img class="flor flor-soffia" src="assets/flor-rosa.webp" alt="" loading="lazy" data-parallax="0.09">
+  <span class="adorno adorno-soffia adorno-esfera" aria-hidden="true" data-parallax="0.10"><svg viewBox="0 0 100 100"><use href="#ad-esfera"/></svg></span>
+  <span class="adorno adorno-soffia adorno-destello" aria-hidden="true" data-parallax="0.11"><svg viewBox="0 0 100 100"><use href="#ad-destello"/></svg></span>
 
   <!-- el puente: lo último que se lee antes de que se abran las rosas -->
   <div class="envoltorio">
@@ -145,6 +220,8 @@
 <section class="seccion s-cuando" id="cuando">
   <div class="costura costura-arriba invertida" aria-hidden="true"></div>
   <img class="flor flor-cuando" src="assets/flor-ramo.webp" alt="" loading="lazy" data-parallax="0.07">
+  <span class="adorno adorno-cuando adorno-estrella" aria-hidden="true" data-parallax="0.10"><svg viewBox="0 0 100 100"><use href="#ad-estrella"/></svg></span>
+  <span class="adorno adorno-cuando adorno-destello" aria-hidden="true" data-parallax="0.11"><svg viewBox="0 0 100 100"><use href="#ad-destello"/></svg></span>
 
   <div class="envoltorio">
     <p class="antetitulo revela" style="--i:0">Cuándo</p>
@@ -178,6 +255,8 @@
 <section class="seccion s-itinerario" id="itinerario">
   <div class="costura costura-arriba" aria-hidden="true"></div>
   <img class="flor flor-itin" src="assets/flor-capullos.webp" alt="" loading="lazy" data-parallax="0.11">
+  <span class="adorno adorno-itin adorno-mono" aria-hidden="true" data-parallax="0.10"><svg viewBox="0 0 100 100"><use href="#ad-mono"/></svg></span>
+  <span class="adorno adorno-itin adorno-destello" aria-hidden="true" data-parallax="0.11"><svg viewBox="0 0 100 100"><use href="#ad-destello"/></svg></span>
 
   <div class="envoltorio">
     <p class="antetitulo revela" style="--i:0">Así celebraremos</p>
@@ -251,7 +330,6 @@
   Vista previa
 </div>
 
-<script src="datos.js?v=1794937501"></script>
-<script src="script.js?v=1794937501"></script>
+<script src="script.js?v=1794944188"></script>
 </body>
 </html>

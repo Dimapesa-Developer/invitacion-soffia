@@ -960,3 +960,123 @@ body.anima .revela.visible{ opacity:1; transform:none; }
   .momento{ --pintado:1; }
   .petalo{ display:none; }
 }
+
+/* ════════════════════════════════════════════════════════════════════════
+   ADORNOS Y ESTILOS
+   Dos acabados sobre el mismo código. Los adornos son los mismos dibujos:
+   cambia su color, su tamaño y cuánto pesan. Así, un arreglo en la
+   estructura vale para los dos y no hay que mantener dos invitaciones.
+   ════════════════════════════════════════════════════════════════════ */
+
+.adorno{
+  position:absolute; z-index:1; pointer-events:none;
+  will-change: transform;
+  transform: translate3d(0, var(--py, 0px), 0) rotate(var(--giro,0deg));
+}
+.adorno svg{ display:block; width:100%; height:auto; }
+
+/* Colocación, igual en los dos estilos: lo que cambia es el tamaño. Todos
+   van ARRIBA del todo, por encima de donde empiezan los antetítulos: al
+   crecer el texto, cualquier cosa a media altura acaba rozándolo. */
+.adorno-soffia.adorno-esfera  { width:13%; top:14px; left:5%;   --giro:-6deg; }
+.adorno-soffia.adorno-destello{ width:6%;  top:76px; left:21%;  --giro:8deg;  }
+.adorno-cuando.adorno-estrella{ width:11%; top:16px; right:7%;  --giro:9deg;  }
+.adorno-cuando.adorno-destello{ width:5.5%;top:74px; right:21%; --giro:-7deg; }
+.adorno-itin.adorno-mono      { width:15%; top:10px; left:4%;   --giro:-5deg; }
+.adorno-itin.adorno-destello  { width:5.5%;top:72px; left:22%;  --giro:6deg;  }
+
+/* el color de la estrella, el moño y el destello viaja por `color`, que sí
+   entra en las copias que hace <use>; las variables CSS no */
+.adorno-estrella, .adorno-mono, .adorno-destello{ color: var(--ad-medio, #D98E92); }
+.adorno-destello{ color: var(--ad-destello, #E0B49C); }
+
+/* ── 1 · PAPEL ────────────────────────────────────────────────────────────
+   Los adornos pasan por acuarela: sin metal, apagados y fundidos con el
+   papel. Están, pero no levantan la voz: las flores siguen mandando. */
+:root[data-estilo="papel"]{
+  --ad-claro:    #F3DCD6;
+  --ad-medio:    #DCA9A2;
+  --ad-hondo:    #BE8A80;
+  --ad-destello: #D7AE8E;
+}
+:root[data-estilo="papel"] .adorno{
+  opacity:.52;
+  mix-blend-mode: multiply;      /* se mete en la fibra del papel */
+  filter: saturate(.72);
+}
+:root[data-estilo="papel"] .adorno-esfera{ width:10%; }
+:root[data-estilo="papel"] .adorno-mono  { width:12%; }
+
+/* ── 2 · FIESTA ───────────────────────────────────────────────────────────
+   Rosa fuerte y plata, como las referencias que eligió Soffia. El papel se
+   queda —es lo que le gustaba— pero se enfría, y las flores se vuelven más
+   saturadas para no quedarse pálidas al lado de los adornos. */
+:root[data-estilo="fiesta"]{
+  --marfil:        #FAF6F7;
+  --marfil-papel:  #F4EDEF;
+  --blanco-calido: #FFFFFF;
+  --campo:         #EBDDE2;
+  --rosa-pastel:   #F4C4D2;
+  --rosa-sombra:   #E9A9BC;
+  --rosa-antiguo:  #C9557E;
+  --rosa-velo:     #FBE8EE;
+  --oro:           #C06A8E;
+  --oro-claro:     #E9A9BC;
+  --tinta:         #3B2A33;
+  --tinta-suave:   #6B4E5C;
+  --tinta-tenue:   #9A7C8A;
+
+  --ad-claro:    #FFFFFF;
+  --ad-medio:    #C9C2C8;
+  --ad-hondo:    #8A7F88;
+  --ad-destello: #E88FB2;
+}
+:root[data-estilo="fiesta"] .adorno{ opacity:.95; }
+:root[data-estilo="fiesta"] .adorno-esfera{
+  width:17%;
+  filter: drop-shadow(0 6px 14px rgba(90,60,75,.22));
+}
+:root[data-estilo="fiesta"] .adorno-estrella,
+:root[data-estilo="fiesta"] .adorno-mono{
+  color:#E0749E;
+  filter: drop-shadow(0 4px 10px rgba(160,60,100,.20));
+}
+:root[data-estilo="fiesta"] .adorno-estrella{ width:14%; }
+:root[data-estilo="fiesta"] .adorno-mono    { width:19%; }
+:root[data-estilo="fiesta"] .adorno-destello{ width:7%; }
+
+/* Las acuarelas son las mismas imágenes: se les sube el tono para que no se
+   vean descoloridas junto al rosa fuerte. No es arte nuevo, es un ajuste. */
+:root[data-estilo="fiesta"] .flor,
+:root[data-estilo="fiesta"] .petalo{
+  filter: saturate(1.5) hue-rotate(-8deg) contrast(1.04);
+}
+
+/* El estilo fiesta pedía más cuerpo: con dos adornos por sección se quedaba
+   en un gesto. Sus referencias están llenas de destellos, así que el papel
+   lleva un polvo de brillos muy tenue.
+   Va en el FONDO de la sección, no en un ::after: un pseudoelemento hay que
+   colocarlo, y colocarlo obliga a subir el contenido por encima, lo que
+   convertía los adornos en bloques a pantalla completa. */
+:root[data-estilo="fiesta"] .seccion{
+  background-image:
+    radial-gradient(circle at 12% 18%, rgba(224,116,158,.22) 0 1.6px, transparent 2px),
+    radial-gradient(circle at 78% 9%,  rgba(255,255,255,.85) 0 2.2px, transparent 2.8px),
+    radial-gradient(circle at 34% 62%, rgba(224,116,158,.16) 0 1.4px, transparent 1.9px),
+    radial-gradient(circle at 88% 48%, rgba(224,116,158,.20) 0 1.8px, transparent 2.3px),
+    radial-gradient(circle at 60% 86%, rgba(255,255,255,.75) 0 2px,   transparent 2.6px),
+    radial-gradient(circle at 20% 92%, rgba(224,116,158,.18) 0 1.5px, transparent 2px);
+  background-size: 190px 240px, 260px 300px, 150px 210px, 230px 270px, 300px 330px, 180px 250px;
+}
+
+:root[data-estilo="fiesta"] .adorno-esfera  { width:17%; }
+:root[data-estilo="fiesta"] .adorno-estrella{ width:13%; }
+:root[data-estilo="fiesta"] .adorno-mono    { width:17%; }
+:root[data-estilo="fiesta"] .adorno-destello{ width:7%;  }
+
+/* y el campo se tiñe de rosa, no solo un punto más que el marfil */
+:root[data-estilo="fiesta"]{
+  --marfil:        #FCF4F7;
+  --marfil-papel:  #F6E7EE;
+  --campo:         #E8D3DC;
+}

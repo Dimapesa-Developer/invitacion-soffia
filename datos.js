@@ -11,6 +11,12 @@
 
 const DATOS = {
 
+  /* Estilo visual -----------------------------------------------------------
+     'papel'  → acuarela sobre papel de algodón, los adornos pintados a juego
+     'fiesta' → rosa fuerte y plata, esferas espejadas, estrellas y moños
+     Se puede probar el otro sin tocar nada añadiendo ?estilo=fiesta a la URL. */
+  estilo: 'papel',
+
   vistaPrevia: true,              // ← ponlo en false cuando los datos sean reales
 
   festejada: {
