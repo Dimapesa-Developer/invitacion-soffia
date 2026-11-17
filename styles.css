@@ -36,7 +36,7 @@
 
   --col: 480px;
   --serif: 'Cormorant Garamond', 'Times New Roman', serif;
-  --firma: 'Parisienne', 'Cormorant Garamond', cursive;
+  --firma: 'Great Vibes', 'Cormorant Garamond', cursive;
   --sans:  'Jost', system-ui, -apple-system, sans-serif;
 
   --curva: cubic-bezier(.22,.61,.36,1);
@@ -266,7 +266,7 @@ body.hoja-fuera .carta{ top:38%; left:16%; width:68%; }
 }
 .carta-nombre{
   font-family:var(--firma); font-weight:400;
-  font-size: clamp(32px, calc(var(--hoja-w, 92vw) * .105), 52px); line-height:1.06;
+  font-size: clamp(30px, calc(var(--hoja-w, 92vw) * .098), 49px); line-height:1.10;
   color:var(--tinta); margin:.1em 0 0;
   white-space:nowrap;
 }
@@ -559,7 +559,7 @@ main{ display:block; }
 .invitacion .inv-pie{ transition-delay:.34s; }
 .firma{
   font-family:var(--firma); font-weight:400;
-  font-size:clamp(38px,12.6vw,56px); line-height:1.1;
+  font-size:clamp(36px,11.8vw,52px); line-height:1.14;
   color:var(--tinta); display:block;
 }
 .parrafo-grande{
@@ -812,7 +812,7 @@ main{ display:block; }
 }
 .rubrica-firma{
   font-family:var(--firma); font-weight:400;
-  font-size:clamp(54px,17vw,74px); line-height:1;
+  font-size:clamp(50px,15.9vw,69px); line-height:1.04;
   color:var(--tinta); margin:.1em 0 0;
 }
 .sello{
@@ -969,43 +969,35 @@ body.anima .revela.visible{ opacity:1; transform:none; }
    ════════════════════════════════════════════════════════════════════ */
 
 .adorno{
-  position:absolute; z-index:1; pointer-events:none;
+  /* Fotografías de verdad: espejo, foil, satén y purpurina. Solo salen en
+     «fiesta». Sobre la acuarela del estilo «papel» cantarían, y ahí la
+     gracia es justo la contraria: que manden las flores, nada más. */
+  display:none;
+  position:absolute; z-index:1; pointer-events:none; height:auto;
   will-change: transform;
   transform: translate3d(0, var(--py, 0px), 0) rotate(var(--giro,0deg));
 }
-.adorno svg{ display:block; width:100%; height:auto; }
+:root[data-estilo="fiesta"] .adorno{ display:block; }
 
-/* Colocación, igual en los dos estilos: lo que cambia es el tamaño. Todos
-   van ARRIBA del todo, por encima de donde empiezan los antetítulos: al
-   crecer el texto, cualquier cosa a media altura acaba rozándolo. */
-.adorno-soffia.adorno-esfera  { width:13%; top:14px; left:5%;   --giro:-6deg; }
-.adorno-soffia.adorno-destello{ width:6%;  top:76px; left:21%;  --giro:8deg;  }
-.adorno-cuando.adorno-estrella{ width:11%; top:16px; right:7%;  --giro:9deg;  }
-.adorno-cuando.adorno-destello{ width:5.5%;top:74px; right:21%; --giro:-7deg; }
-.adorno-itin.adorno-mono      { width:15%; top:10px; left:4%;   --giro:-5deg; }
-.adorno-itin.adorno-destello  { width:5.5%;top:72px; left:22%;  --giro:6deg;  }
+/* Colocación. Todo va ARRIBA del todo, por encima de donde empiezan los
+   antetítulos: cualquier cosa a media altura acaba rozando el texto cuando
+   la letra crece. Los hilos de las esferas y las cintas de los globos salen
+   cortados en el borde del recorte, así que cuelgan del canto de la sección
+   en vez de flotar sueltos. */
+.ad-esferas   { width:27%; top:-4px;  left:3%;   --giro:0deg;  }
+.ad-globos    { width:28%; top:2px;   right:2%;  --giro:0deg;  }
+.ad-esfera-sola{width:8%;  top:-2px;  left:13%;  --giro:0deg;  }
+.ad-mono-a    { width:19%; top:10px;  left:4%;   --giro:-5deg; }
+.ad-mono-b    { width:17%; top:14px;  right:5%;  --giro:4deg;  }
 
-/* el color de la estrella, el moño y el destello viaja por `color`, que sí
-   entra en las copias que hace <use>; las variables CSS no */
-.adorno-estrella, .adorno-mono, .adorno-destello{ color: var(--ad-medio, #D98E92); }
-.adorno-destello{ color: var(--ad-destello, #E0B49C); }
+/* El confeti va grande y muy tenue, y se sale por el canto: así se lee como
+   polvo repartido por la hoja y no como una calcomanía pegada en una esquina. */
+.ad-polvo     { opacity:.55; }
+.ad-polvo-a   { width:34%; top:30px;  right:-6%; --giro:0deg; }
+.ad-polvo-b   { width:32%; top:38px;  right:-5%; --giro:0deg; }
 
-/* ── 1 · PAPEL ────────────────────────────────────────────────────────────
-   Los adornos pasan por acuarela: sin metal, apagados y fundidos con el
-   papel. Están, pero no levantan la voz: las flores siguen mandando. */
-:root[data-estilo="papel"]{
-  --ad-claro:    #F3DCD6;
-  --ad-medio:    #DCA9A2;
-  --ad-hondo:    #BE8A80;
-  --ad-destello: #D7AE8E;
-}
-:root[data-estilo="papel"] .adorno{
-  opacity:.52;
-  mix-blend-mode: multiply;      /* se mete en la fibra del papel */
-  filter: saturate(.72);
-}
-:root[data-estilo="papel"] .adorno-esfera{ width:10%; }
-:root[data-estilo="papel"] .adorno-mono  { width:12%; }
+/* «Papel» se queda como estaba: acuarela y nada más. Esa es la diferencia
+   entre los dos estilos, y por eso se pueden comparar de verdad. */
 
 /* ── 2 · FIESTA ───────────────────────────────────────────────────────────
    Rosa fuerte y plata, como las referencias que eligió Soffia. El papel se
@@ -1026,30 +1018,25 @@ body.anima .revela.visible{ opacity:1; transform:none; }
   --tinta-suave:   #6B4E5C;
   --tinta-tenue:   #9A7C8A;
 
-  --ad-claro:    #FFFFFF;
-  --ad-medio:    #C9C2C8;
-  --ad-hondo:    #8A7F88;
-  --ad-destello: #E88FB2;
 }
-:root[data-estilo="fiesta"] .adorno{ opacity:.95; }
-:root[data-estilo="fiesta"] .adorno-esfera{
-  width:17%;
-  filter: drop-shadow(0 6px 14px rgba(90,60,75,.22));
-}
-:root[data-estilo="fiesta"] .adorno-estrella,
-:root[data-estilo="fiesta"] .adorno-mono{
-  color:#E0749E;
-  filter: drop-shadow(0 4px 10px rgba(160,60,100,.20));
-}
-:root[data-estilo="fiesta"] .adorno-estrella{ width:14%; }
-:root[data-estilo="fiesta"] .adorno-mono    { width:19%; }
-:root[data-estilo="fiesta"] .adorno-destello{ width:7%; }
 
 /* Las acuarelas son las mismas imágenes: se les sube el tono para que no se
    vean descoloridas junto al rosa fuerte. No es arte nuevo, es un ajuste. */
+:root[data-estilo="fiesta"] .ad-esferas,
+:root[data-estilo="fiesta"] .ad-esfera-sola{
+  filter: drop-shadow(0 7px 16px rgba(90,60,75,.20));
+}
+:root[data-estilo="fiesta"] .ad-mono-a,
+:root[data-estilo="fiesta"] .ad-mono-b,
+:root[data-estilo="fiesta"] .ad-globos{
+  filter: drop-shadow(0 5px 13px rgba(160,60,100,.17));
+}
+
+/* Las flores son las mismas en los dos estilos: aquí se les sube el tono
+   para que no se queden pálidas al lado del rosa fuerte. */
 :root[data-estilo="fiesta"] .flor,
 :root[data-estilo="fiesta"] .petalo{
-  filter: saturate(1.5) hue-rotate(-8deg) contrast(1.04);
+  filter: saturate(1.22) contrast(1.03);
 }
 
 /* El estilo fiesta pedía más cuerpo: con dos adornos por sección se quedaba
@@ -1058,21 +1045,32 @@ body.anima .revela.visible{ opacity:1; transform:none; }
    Va en el FONDO de la sección, no en un ::after: un pseudoelemento hay que
    colocarlo, y colocarlo obliga a subir el contenido por encima, lo que
    convertía los adornos en bloques a pantalla completa. */
-:root[data-estilo="fiesta"] .seccion{
-  background-image:
-    radial-gradient(circle at 12% 18%, rgba(224,116,158,.22) 0 1.6px, transparent 2px),
-    radial-gradient(circle at 78% 9%,  rgba(255,255,255,.85) 0 2.2px, transparent 2.8px),
-    radial-gradient(circle at 34% 62%, rgba(224,116,158,.16) 0 1.4px, transparent 1.9px),
-    radial-gradient(circle at 88% 48%, rgba(224,116,158,.20) 0 1.8px, transparent 2.3px),
-    radial-gradient(circle at 60% 86%, rgba(255,255,255,.75) 0 2px,   transparent 2.6px),
-    radial-gradient(circle at 20% 92%, rgba(224,116,158,.18) 0 1.5px, transparent 2px);
-  background-size: 190px 240px, 260px 300px, 150px 210px, 230px 270px, 300px 330px, 180px 250px;
+/* La purpurina es una fotografía, no seis degradados: el grano fino y el
+   desenfoque son justo lo que no se puede dibujar con CSS.
+   Va a `cover`, no repetida: la lámina no es sin costuras y al mosaico se le
+   verían las uniones. Estirada no se nota, porque no tiene forma. Y en
+   `multiply` para que cada sección conserve su propio color de fondo. */
+/* «Fiesta» respira más por arriba. No es capricho: el texto de una sección
+   empieza a 112 px del canto, y ahí es donde van los adornos. Con la banda de
+   antes, las esferas rozaban el primer renglón; ensanchándola caben de sobra
+   y de paso la sección se ve más holgada, que es lo que pedía este estilo. */
+:root[data-estilo="fiesta"] .seccion,
+:root[data-estilo="fiesta"] .s-soffia{
+  padding-top: clamp(170px, 32vw, 206px);
+  /* El confeti se sale por el canto a propósito, y eso ensanchaba la página.
+     `clip` y no `hidden`: `hidden` convierte la sección en un contenedor de
+     scroll y la escena de Soffia, que va pegada con sticky, dejaría de
+     pegarse. `clip` recorta sin tocar el scroll. */
+  overflow-x: clip;
 }
 
-:root[data-estilo="fiesta"] .adorno-esfera  { width:17%; }
-:root[data-estilo="fiesta"] .adorno-estrella{ width:13%; }
-:root[data-estilo="fiesta"] .adorno-mono    { width:17%; }
-:root[data-estilo="fiesta"] .adorno-destello{ width:7%;  }
+:root[data-estilo="fiesta"] .seccion{
+  background-image: url('assets/fondo-purpurina.webp');
+  background-size: cover;
+  background-position: center;
+  background-blend-mode: multiply;
+}
+
 
 /* y el campo se tiñe de rosa, no solo un punto más que el marfil */
 :root[data-estilo="fiesta"]{
