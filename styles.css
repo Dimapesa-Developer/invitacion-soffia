@@ -973,7 +973,11 @@ body.anima .revela.visible{ opacity:1; transform:none; }
      «fiesta». Sobre la acuarela del estilo «papel» cantarían, y ahí la
      gracia es justo la contraria: que manden las flores, nada más. */
   display:none;
-  position:absolute; z-index:1; pointer-events:none; height:auto;
+  /* z-index 2, el mismo que el texto: como el adorno va antes en el documento,
+     el texto le pasa por encima igual que antes. Lo que cambia es la rosa que
+     cae, que viaja a z-index 1 y ahora pasa POR DETRÁS de los globos y las
+     esferas, en vez de cruzarlos por delante. */
+  position:absolute; z-index:2; pointer-events:none; height:auto;
   will-change: transform;
   transform: translate3d(0, var(--py, 0px), 0) rotate(var(--giro,0deg));
 }
@@ -992,8 +996,8 @@ body.anima .revela.visible{ opacity:1; transform:none; }
    Cada uno se apoya en un canto, que es lo que hace que no floten:
    las esferas cuelgan de arriba, los globos se escapan por abajo y los moños
    se atan a la esquina. */
-.ad-esferas   { width:30%; top:-10px;  left:2%;   --giro:0deg;  }
-.ad-globos    { width:31%; bottom:-34px; right:3%; --giro:0deg; }
+.ad-esferas   { width:28%; top:-10px;  left:2%;   --giro:0deg;  }
+.ad-globos    { width:27%; bottom:-30px; right:3%; --giro:0deg; }
 .ad-mono-a    { width:16%; top:16px;  left:5%;   --giro:-9deg; }
 .ad-mono-b    { width:14%; top:20px;  left:6%;   --giro:7deg;  }
 
@@ -1060,9 +1064,17 @@ body.anima .revela.visible{ opacity:1; transform:none; }
    empieza a 112 px del canto, y ahí es donde van los adornos. Con la banda de
    antes, las esferas rozaban el primer renglón; ensanchándola caben de sobra
    y de paso la sección se ve más holgada, que es lo que pedía este estilo. */
+/* Y la confirmación respira por abajo, que es por donde suben los globos. A
+   480 px la columna llega a su ancho máximo y la nota del final cabe en un
+   solo renglón, de modo que se estiraba hasta meterse debajo del racimo. El
+   hueco que quedaba —128 px— no daba para un racimo de 175. */
+:root[data-estilo="fiesta"] .s-confirmar{
+  padding-bottom: clamp(196px, 46vw, 236px);
+}
+
 :root[data-estilo="fiesta"] .seccion,
 :root[data-estilo="fiesta"] .s-soffia{
-  padding-top: clamp(170px, 32vw, 206px);
+  padding-top: clamp(196px, 32vw, 214px);
   /* El confeti se sale por el canto a propósito, y eso ensanchaba la página.
      `clip` y no `hidden`: `hidden` convierte la sección en un contenedor de
      scroll y la escena de Soffia, que va pegada con sticky, dejaría de
