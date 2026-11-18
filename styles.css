@@ -1001,6 +1001,17 @@ body.anima .revela.visible{ opacity:1; transform:none; }
 .ad-mono-a    { width:16%; top:16px;  left:5%;   --giro:-9deg; }
 .ad-mono-b    { width:14%; top:20px;  left:6%;   --giro:7deg;  }
 
+/* El confeti de purpurina vuelve, pero no como objeto suelto en un rincón
+   —que es lo que se leía como puesto al azar— sino DETRÁS de las piezas
+   metálicas y desbordándolas: una bola de espejo que no lanza destellos es
+   solo una esfera, y un racimo de globos sin brillo alrededor es un bodegón.
+   Va antes que su pieza en el documento, así que queda por debajo de ella.
+   Es además lo que ata el recorte fotográfico al papel de acuarela: sin nada
+   que los una, el metal se queda encima como una pegatina. */
+.ad-brillo        { opacity:.78; }
+.ad-brillo-esferas{ width:42%; top:-34px;    left:-7%;  --giro:0deg; }
+.ad-brillo-globos { width:40%; bottom:-50px; right:-6%; --giro:0deg; }
+
 /* La flor de esta sección baja: a su altura de siempre quedaba exactamente al
    mismo nivel que las esferas, una en cada esquina, y dos cosas distintas
    puestas en espejo se leen como relleno. */
@@ -1049,17 +1060,17 @@ body.anima .revela.visible{ opacity:1; transform:none; }
   filter: saturate(1.22) contrast(1.03);
 }
 
-/* El estilo fiesta pedía más cuerpo: con dos adornos por sección se quedaba
-   en un gesto. Sus referencias están llenas de destellos, así que el papel
-   lleva un polvo de brillos muy tenue.
-   Va en el FONDO de la sección, no en un ::after: un pseudoelemento hay que
-   colocarlo, y colocarlo obliga a subir el contenido por encima, lo que
-   convertía los adornos en bloques a pantalla completa. */
-/* La purpurina es una fotografía, no seis degradados: el grano fino y el
-   desenfoque son justo lo que no se puede dibujar con CSS.
-   Va a `cover`, no repetida: la lámina no es sin costuras y al mosaico se le
-   verían las uniones. Estirada no se nota, porque no tiene forma. Y en
-   `multiply` para que cada sección conserve su propio color de fondo. */
+/* Y los iconos del itinerario, igual. Son del arte antiguo, en un pastel más
+   lavado, y eran lo último que seguía en la paleta de antes: al lado de las
+   flores nuevas se veían desteñidos. Se suben un punto más que las flores
+   porque parten de más pálidos. */
+:root[data-estilo="fiesta"] .icono-color{
+  filter: saturate(1.4) contrast(1.05);
+}
+:root[data-estilo="fiesta"] .icono-agua{
+  opacity:.28; filter: grayscale(.34) brightness(1.04);
+}
+
 /* «Fiesta» respira más por arriba. No es capricho: el texto de una sección
    empieza a 112 px del canto, y ahí es donde van los adornos. Con la banda de
    antes, las esferas rozaban el primer renglón; ensanchándola caben de sobra
@@ -1075,20 +1086,12 @@ body.anima .revela.visible{ opacity:1; transform:none; }
 :root[data-estilo="fiesta"] .seccion,
 :root[data-estilo="fiesta"] .s-soffia{
   padding-top: clamp(196px, 32vw, 214px);
-  /* El confeti se sale por el canto a propósito, y eso ensanchaba la página.
-     `clip` y no `hidden`: `hidden` convierte la sección en un contenedor de
-     scroll y la escena de Soffia, que va pegada con sticky, dejaría de
-     pegarse. `clip` recorta sin tocar el scroll. */
+  /* El brillo y las cintas se salen por el canto a propósito, y eso ensanchaba
+     la página. `clip` y no `hidden`: `hidden` convierte la sección en un
+     contenedor de scroll y la escena de Soffia, que va pegada con sticky,
+     dejaría de pegarse. `clip` recorta sin tocar el scroll. */
   overflow-x: clip;
 }
-
-:root[data-estilo="fiesta"] .seccion{
-  background-image: url('assets/fondo-purpurina.webp');
-  background-size: cover;
-  background-position: center;
-  background-blend-mode: multiply;
-}
-
 
 /* y el campo se tiñe de rosa, no solo un punto más que el marfil */
 :root[data-estilo="fiesta"]{
