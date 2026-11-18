@@ -984,17 +984,23 @@ body.anima .revela.visible{ opacity:1; transform:none; }
    la letra crece. Los hilos de las esferas y las cintas de los globos salen
    cortados en el borde del recorte, así que cuelgan del canto de la sección
    en vez de flotar sueltos. */
-.ad-esferas   { width:27%; top:-4px;  left:3%;   --giro:0deg;  }
-.ad-globos    { width:28%; top:2px;   right:2%;  --giro:0deg;  }
-.ad-esfera-sola{width:8%;  top:-2px;  left:13%;  --giro:0deg;  }
-.ad-mono-a    { width:19%; top:10px;  left:4%;   --giro:-5deg; }
-.ad-mono-b    { width:17%; top:14px;  right:5%;  --giro:4deg;  }
+/* Cuatro objetos en ocho secciones, y cada uno donde significa algo. Con uno
+   en cada esquina de cada sección todas se leían igual y ninguno parecía
+   puesto a propósito; el brillo suelto se fue al fondo, que es donde un polvo
+   tiene sentido: repartido y no amontonado en un rincón.
 
-/* El confeti va grande y muy tenue, y se sale por el canto: así se lee como
-   polvo repartido por la hoja y no como una calcomanía pegada en una esquina. */
-.ad-polvo     { opacity:.55; }
-.ad-polvo-a   { width:34%; top:30px;  right:-6%; --giro:0deg; }
-.ad-polvo-b   { width:32%; top:38px;  right:-5%; --giro:0deg; }
+   Cada uno se apoya en un canto, que es lo que hace que no floten:
+   las esferas cuelgan de arriba, los globos se escapan por abajo y los moños
+   se atan a la esquina. */
+.ad-esferas   { width:30%; top:-10px;  left:2%;   --giro:0deg;  }
+.ad-globos    { width:31%; bottom:-34px; right:3%; --giro:0deg; }
+.ad-mono-a    { width:16%; top:16px;  left:5%;   --giro:-9deg; }
+.ad-mono-b    { width:14%; top:20px;  left:6%;   --giro:7deg;  }
+
+/* La flor de esta sección baja: a su altura de siempre quedaba exactamente al
+   mismo nivel que las esferas, una en cada esquina, y dos cosas distintas
+   puestas en espejo se leen como relleno. */
+:root[data-estilo="fiesta"] .flor-soffia{ top:84px; }
 
 /* «Papel» se queda como estaba: acuarela y nada más. Esa es la diferencia
    entre los dos estilos, y por eso se pueden comparar de verdad. */
