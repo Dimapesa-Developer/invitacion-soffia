@@ -116,7 +116,17 @@ const DATOS = {
      Coloca los archivos en assets/fotos/ y escribe aquí sus nombres.         */
   fotos: {
     portada:  'assets/fotos/soffia-portada.webp',
-    momentos: []                 // ej: ['assets/fotos/soffia-1.jpg', ...]
+    momentos: [
+      'assets/fotos/galeria-01.webp',
+      'assets/fotos/galeria-02.webp',
+      'assets/fotos/galeria-03.webp',
+      'assets/fotos/galeria-04.webp',
+      'assets/fotos/galeria-05.webp',
+      'assets/fotos/galeria-06.webp',
+      'assets/fotos/galeria-07.webp',
+      'assets/fotos/galeria-08.webp',
+      'assets/fotos/galeria-09.webp'
+    ]
   },
 
   /* Música -----------------------------------------------------------------

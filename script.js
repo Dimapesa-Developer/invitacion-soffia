@@ -48,7 +48,7 @@ let   abierto   = false;
    aparecen las letras encima. Los dos vídeos van en dos elementos distintos:
    el segundo se precarga mientras corre el primero, así el corte entre ellos
    no parpadea (el último fotograma de uno es el primero del otro). */
-const VIDEOS = ['assets/apertura-1.mp4?v=1795380190-700b63f', 'assets/apertura-2.mp4?v=1795380190-700b63f'];
+const VIDEOS = ['assets/apertura-1.mp4?v=1795380684-90536f8', 'assets/apertura-2.mp4?v=1795380684-90536f8'];
 
 /* El texto va centrado sobre LA HOJA, no sobre la pantalla. La hoja cambia
    de tamaño y de sitio según la proporción del móvil, así que un porcentaje

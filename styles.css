@@ -8,31 +8,31 @@
    buena, en vez de quedarse invisible. */
 @font-face{
   font-family:'Cormorant Garamond'; font-style:italic; font-weight:300; font-display:swap;
-  src:url('assets/fuentes/cormorant-garamond-300-italica.woff2?v=1795380190-700b63f') format('woff2');
+  src:url('assets/fuentes/cormorant-garamond-300-italica.woff2?v=1795380684-90536f8') format('woff2');
 }
 @font-face{
   font-family:'Cormorant Garamond'; font-style:normal; font-weight:300; font-display:swap;
-  src:url('assets/fuentes/cormorant-garamond-300.woff2?v=1795380190-700b63f') format('woff2');
+  src:url('assets/fuentes/cormorant-garamond-300.woff2?v=1795380684-90536f8') format('woff2');
 }
 @font-face{
   font-family:'Cormorant Garamond'; font-style:normal; font-weight:400; font-display:swap;
-  src:url('assets/fuentes/cormorant-garamond-400.woff2?v=1795380190-700b63f') format('woff2');
+  src:url('assets/fuentes/cormorant-garamond-400.woff2?v=1795380684-90536f8') format('woff2');
 }
 @font-face{
   font-family:'Cormorant Garamond'; font-style:normal; font-weight:500; font-display:swap;
-  src:url('assets/fuentes/cormorant-garamond-500.woff2?v=1795380190-700b63f') format('woff2');
+  src:url('assets/fuentes/cormorant-garamond-500.woff2?v=1795380684-90536f8') format('woff2');
 }
 @font-face{
   font-family:'Great Vibes'; font-style:normal; font-weight:400; font-display:swap;
-  src:url('assets/fuentes/great-vibes-400.woff2?v=1795380190-700b63f') format('woff2');
+  src:url('assets/fuentes/great-vibes-400.woff2?v=1795380684-90536f8') format('woff2');
 }
 @font-face{
   font-family:'Jost'; font-style:normal; font-weight:300; font-display:swap;
-  src:url('assets/fuentes/jost-300.woff2?v=1795380190-700b63f') format('woff2');
+  src:url('assets/fuentes/jost-300.woff2?v=1795380684-90536f8') format('woff2');
 }
 @font-face{
   font-family:'Jost'; font-style:normal; font-weight:400; font-display:swap;
-  src:url('assets/fuentes/jost-400.woff2?v=1795380190-700b63f') format('woff2');
+  src:url('assets/fuentes/jost-400.woff2?v=1795380684-90536f8') format('woff2');
 }
 
 /* ===========================================================================
@@ -108,7 +108,7 @@ body{
 body::before{
   content:''; position:fixed; inset:0; z-index:9;
   pointer-events:none;
-  background:url('assets/papel-marfil.webp?v=1795380190-700b63f') repeat;
+  background:url('assets/papel-marfil.webp?v=1795380684-90536f8') repeat;
   background-size:360px 360px;
   opacity:.5; mix-blend-mode:multiply;
 }
@@ -255,8 +255,8 @@ body.hoja-posada-lista .hoja-posada img{ opacity:1; transform:none; }
 /* la máscara deja ver la tarjeta solo por encima de la V de la solapa */
 .marco-tarjeta{
   position:absolute; inset:0; display:block;
-  -webkit-mask-image:url('assets/mascara-tarjeta.png?v=1795380190-700b63f');
-          mask-image:url('assets/mascara-tarjeta.png?v=1795380190-700b63f');
+  -webkit-mask-image:url('assets/mascara-tarjeta.png?v=1795380684-90536f8');
+          mask-image:url('assets/mascara-tarjeta.png?v=1795380684-90536f8');
   -webkit-mask-size:100% 66.5072%;
           mask-size:100% 66.5072%;
   -webkit-mask-position:top left;  mask-position:top left;
@@ -462,7 +462,7 @@ main{ display:block; }
 /* costuras de papel rasgado entre secciones */
 .costura{
   position:absolute; top:-2px; left:0; width:100%; height:clamp(26px,6.4vw,40px);
-  background:url('assets/tira-papel.webp?v=1795380190-700b63f') center bottom / 100% 100% no-repeat;
+  background:url('assets/tira-papel.webp?v=1795380684-90536f8') center bottom / 100% 100% no-repeat;
   z-index:1; pointer-events:none;
   filter: drop-shadow(0 3px 5px rgba(130,97,80,.1));
 }
