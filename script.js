@@ -48,7 +48,7 @@ let   abierto   = false;
    aparecen las letras encima. Los dos vídeos van en dos elementos distintos:
    el segundo se precarga mientras corre el primero, así el corte entre ellos
    no parpadea (el último fotograma de uno es el primero del otro). */
-const VIDEOS = ['assets/apertura-1.mp4?v=1795372838-704728f', 'assets/apertura-2.mp4?v=1795372838-704728f'];
+const VIDEOS = ['assets/apertura-1.mp4?v=1795373540-de1f69e', 'assets/apertura-2.mp4?v=1795373540-de1f69e'];
 
 /* El texto va centrado sobre LA HOJA, no sobre la pantalla. La hoja cambia
    de tamaño y de sitio según la proporción del móvil, así que un porcentaje
@@ -203,7 +203,7 @@ if (MODO === 'video' && !yaAbierto && !QUIETO) {
   setTimeout(pedirSegundo, 2500);          // red lenta: no esperamos para siempre
 }
 
-/* ══════════════ 2 · CONTENIDO DESDE datos.js?v=1795372838-704728f ══════════════ */
+/* ══════════════ 2 · CONTENIDO DESDE datos.js?v=1795373540-de1f69e ══════════════ */
 
 if (PREVIA && $('#aviso-previa')) $('#aviso-previa').hidden = false;
 

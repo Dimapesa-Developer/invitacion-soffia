@@ -71,7 +71,7 @@ body{
 body::before{
   content:''; position:fixed; inset:0; z-index:9;
   pointer-events:none;
-  background:url('assets/papel-marfil.webp?v=1795372838-704728f') repeat;
+  background:url('assets/papel-marfil.webp?v=1795373540-de1f69e') repeat;
   background-size:360px 360px;
   opacity:.5; mix-blend-mode:multiply;
 }
@@ -218,8 +218,8 @@ body.hoja-posada-lista .hoja-posada img{ opacity:1; transform:none; }
 /* la máscara deja ver la tarjeta solo por encima de la V de la solapa */
 .marco-tarjeta{
   position:absolute; inset:0; display:block;
-  -webkit-mask-image:url('assets/mascara-tarjeta.png?v=1795372838-704728f');
-          mask-image:url('assets/mascara-tarjeta.png?v=1795372838-704728f');
+  -webkit-mask-image:url('assets/mascara-tarjeta.png?v=1795373540-de1f69e');
+          mask-image:url('assets/mascara-tarjeta.png?v=1795373540-de1f69e');
   -webkit-mask-size:100% 66.5072%;
           mask-size:100% 66.5072%;
   -webkit-mask-position:top left;  mask-position:top left;
@@ -425,7 +425,7 @@ main{ display:block; }
 /* costuras de papel rasgado entre secciones */
 .costura{
   position:absolute; top:-2px; left:0; width:100%; height:clamp(26px,6.4vw,40px);
-  background:url('assets/tira-papel.webp?v=1795372838-704728f') center bottom / 100% 100% no-repeat;
+  background:url('assets/tira-papel.webp?v=1795373540-de1f69e') center bottom / 100% 100% no-repeat;
   z-index:1; pointer-events:none;
   filter: drop-shadow(0 3px 5px rgba(130,97,80,.1));
 }
@@ -1025,6 +1025,24 @@ body.anima .revela.visible{ opacity:1; transform:none; }
 /* El globo sube, así que sale por el canto de abajo, como el racimo. */
 .ad-globo     { width:19%; bottom:-26px; right:6%; --giro:0deg; }
 
+/* Los grupos de estrellas cruzan la columna y se salen por un canto. Van en
+   la banda de arriba, en el lado contrario al objeto principal de la sección:
+   así la decoración abarca todo el ancho en vez de amontonarse en una esquina,
+   que es lo que hace la invitación que Soffia tomó de referencia.
+   Arrancan a 40 px y no a 10: el bloque del «XV años» se sale 20 px por debajo
+   de su sección —va desplazado con --baja-inv— y se topaba con el grupo de la
+   sección siguiente. Medido a 640 px, que es donde asoma. */
+.ad-estrellas     { width:60%; top:40px; opacity:.92; --giro:0deg; }
+.ad-estrellas-izq { left:-9%; }
+.ad-estrellas-der { right:-9%; }
+/* La sección de Soffia no lleva grupo de estrellas: su escena va pegada con
+   sticky y sube por delante, así que cualquier adorno anclado a la sección
+   acaba cruzando el nombre. Ya tiene el racimo de espejo y el halo. */
+
+/* La tela entra por la esquina y se va fuera de cuadro: el corte recto que
+   trae la lámina queda siempre fuera. */
+.ad-tela          { width:44%; bottom:-6%; right:-13%; --giro:0deg; opacity:.85; }
+
 .ad-brillo        { opacity:.78; }
 .ad-brillo-esferas{ width:42%; top:-34px;    left:-7%;  --giro:0deg; }
 .ad-brillo-globos { width:40%; bottom:-50px; right:-6%; --giro:0deg; }
@@ -1063,6 +1081,9 @@ body.anima .revela.visible{ opacity:1; transform:none; }
 :root[data-estilo="fiesta"] .ad-esferas,
 :root[data-estilo="fiesta"] .ad-esfera-sola{
   filter: drop-shadow(0 7px 16px rgba(90,60,75,.20));
+}
+:root[data-estilo="fiesta"] .ad-tela{
+  filter: drop-shadow(0 6px 16px rgba(160,60,100,.12));
 }
 :root[data-estilo="fiesta"] .ad-mono-a,
 :root[data-estilo="fiesta"] .ad-mono-b,
@@ -1113,9 +1134,12 @@ body.anima .revela.visible{ opacity:1; transform:none; }
   overflow-x: clip;
 }
 
-/* y el campo se tiñe de rosa, no solo un punto más que el marfil */
+/* El papel se va casi al blanco. En la referencia que eligió Soffia el fondo
+   es blanco y por eso la plata, el rosa fuerte y la purpurina saltan; sobre
+   un rosa medio, cada elemento rosa se apagaba contra el papel. El campo de
+   los lados sí conserva algo de color, para que la columna se recorte. */
 :root[data-estilo="fiesta"]{
-  --marfil:        #FCF4F7;
-  --marfil-papel:  #F6E7EE;
-  --campo:         #E8D3DC;
+  --marfil:        #FFFDFE;
+  --marfil-papel:  #FDF7FA;
+  --campo:         #EFE2E8;
 }
