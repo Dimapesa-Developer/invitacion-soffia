@@ -71,7 +71,7 @@ body{
 body::before{
   content:''; position:fixed; inset:0; z-index:9;
   pointer-events:none;
-  background:url('assets/papel-marfil.webp?v=1795374507-0600d23') repeat;
+  background:url('assets/papel-marfil.webp?v=1795375679-2612b29') repeat;
   background-size:360px 360px;
   opacity:.5; mix-blend-mode:multiply;
 }
@@ -218,8 +218,8 @@ body.hoja-posada-lista .hoja-posada img{ opacity:1; transform:none; }
 /* la máscara deja ver la tarjeta solo por encima de la V de la solapa */
 .marco-tarjeta{
   position:absolute; inset:0; display:block;
-  -webkit-mask-image:url('assets/mascara-tarjeta.png?v=1795374507-0600d23');
-          mask-image:url('assets/mascara-tarjeta.png?v=1795374507-0600d23');
+  -webkit-mask-image:url('assets/mascara-tarjeta.png?v=1795375679-2612b29');
+          mask-image:url('assets/mascara-tarjeta.png?v=1795375679-2612b29');
   -webkit-mask-size:100% 66.5072%;
           mask-size:100% 66.5072%;
   -webkit-mask-position:top left;  mask-position:top left;
@@ -425,7 +425,7 @@ main{ display:block; }
 /* costuras de papel rasgado entre secciones */
 .costura{
   position:absolute; top:-2px; left:0; width:100%; height:clamp(26px,6.4vw,40px);
-  background:url('assets/tira-papel.webp?v=1795374507-0600d23') center bottom / 100% 100% no-repeat;
+  background:url('assets/tira-papel.webp?v=1795375679-2612b29') center bottom / 100% 100% no-repeat;
   z-index:1; pointer-events:none;
   filter: drop-shadow(0 3px 5px rgba(130,97,80,.1));
 }

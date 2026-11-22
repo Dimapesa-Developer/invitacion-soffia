@@ -48,7 +48,7 @@ let   abierto   = false;
    aparecen las letras encima. Los dos vídeos van en dos elementos distintos:
    el segundo se precarga mientras corre el primero, así el corte entre ellos
    no parpadea (el último fotograma de uno es el primero del otro). */
-const VIDEOS = ['assets/apertura-1.mp4?v=1795374507-0600d23', 'assets/apertura-2.mp4?v=1795374507-0600d23'];
+const VIDEOS = ['assets/apertura-1.mp4?v=1795375679-2612b29', 'assets/apertura-2.mp4?v=1795375679-2612b29'];
 
 /* El texto va centrado sobre LA HOJA, no sobre la pantalla. La hoja cambia
    de tamaño y de sitio según la proporción del móvil, así que un porcentaje
@@ -67,8 +67,8 @@ function encajarPortada() {
   const pt = parseFloat(cs.paddingTop)   || 0, pb = parseFloat(cs.paddingBottom) || 0;
   const bw = aw - pl - pr, bh = ah - pt - pb;
   if (bw <= 0 || bh <= 0) return;
-  const e  = Math.min(bw / 720, bh / 1168);      // la hoja, en su tamaño real
-  const hw = 720 * e, hh = 1168 * e;
+  const e  = Math.min(bw / 672, bh / 967);      // la hoja, en su tamaño real
+  const hw = 672 * e, hh = 967 * e;
   const hx = pl + (bw - hw) / 2, hy = pt + (bh - hh) / 2;
   carta.style.left  = (hx + hw * 0.11).toFixed(1) + 'px';
   carta.style.width = (hw * 0.78).toFixed(1) + 'px';
@@ -203,7 +203,7 @@ if (MODO === 'video' && !yaAbierto && !QUIETO) {
   setTimeout(pedirSegundo, 2500);          // red lenta: no esperamos para siempre
 }
 
-/* ══════════════ 2 · CONTENIDO DESDE datos.js?v=1795374507-0600d23 ══════════════ */
+/* ══════════════ 2 · CONTENIDO DESDE datos.js?v=1795375679-2612b29 ══════════════ */
 
 if (PREVIA && $('#aviso-previa')) $('#aviso-previa').hidden = false;
 
