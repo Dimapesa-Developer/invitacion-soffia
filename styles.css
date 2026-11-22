@@ -8,31 +8,31 @@
    buena, en vez de quedarse invisible. */
 @font-face{
   font-family:'Cormorant Garamond'; font-style:italic; font-weight:300; font-display:swap;
-  src:url('assets/fuentes/cormorant-garamond-300-italica.woff2?v=1795376865-6f4da46') format('woff2');
+  src:url('assets/fuentes/cormorant-garamond-300-italica.woff2?v=1795380190-700b63f') format('woff2');
 }
 @font-face{
   font-family:'Cormorant Garamond'; font-style:normal; font-weight:300; font-display:swap;
-  src:url('assets/fuentes/cormorant-garamond-300.woff2?v=1795376865-6f4da46') format('woff2');
+  src:url('assets/fuentes/cormorant-garamond-300.woff2?v=1795380190-700b63f') format('woff2');
 }
 @font-face{
   font-family:'Cormorant Garamond'; font-style:normal; font-weight:400; font-display:swap;
-  src:url('assets/fuentes/cormorant-garamond-400.woff2?v=1795376865-6f4da46') format('woff2');
+  src:url('assets/fuentes/cormorant-garamond-400.woff2?v=1795380190-700b63f') format('woff2');
 }
 @font-face{
   font-family:'Cormorant Garamond'; font-style:normal; font-weight:500; font-display:swap;
-  src:url('assets/fuentes/cormorant-garamond-500.woff2?v=1795376865-6f4da46') format('woff2');
+  src:url('assets/fuentes/cormorant-garamond-500.woff2?v=1795380190-700b63f') format('woff2');
 }
 @font-face{
   font-family:'Great Vibes'; font-style:normal; font-weight:400; font-display:swap;
-  src:url('assets/fuentes/great-vibes-400.woff2?v=1795376865-6f4da46') format('woff2');
+  src:url('assets/fuentes/great-vibes-400.woff2?v=1795380190-700b63f') format('woff2');
 }
 @font-face{
   font-family:'Jost'; font-style:normal; font-weight:300; font-display:swap;
-  src:url('assets/fuentes/jost-300.woff2?v=1795376865-6f4da46') format('woff2');
+  src:url('assets/fuentes/jost-300.woff2?v=1795380190-700b63f') format('woff2');
 }
 @font-face{
   font-family:'Jost'; font-style:normal; font-weight:400; font-display:swap;
-  src:url('assets/fuentes/jost-400.woff2?v=1795376865-6f4da46') format('woff2');
+  src:url('assets/fuentes/jost-400.woff2?v=1795380190-700b63f') format('woff2');
 }
 
 /* ===========================================================================
@@ -108,7 +108,7 @@ body{
 body::before{
   content:''; position:fixed; inset:0; z-index:9;
   pointer-events:none;
-  background:url('assets/papel-marfil.webp?v=1795376865-6f4da46') repeat;
+  background:url('assets/papel-marfil.webp?v=1795380190-700b63f') repeat;
   background-size:360px 360px;
   opacity:.5; mix-blend-mode:multiply;
 }
@@ -255,8 +255,8 @@ body.hoja-posada-lista .hoja-posada img{ opacity:1; transform:none; }
 /* la máscara deja ver la tarjeta solo por encima de la V de la solapa */
 .marco-tarjeta{
   position:absolute; inset:0; display:block;
-  -webkit-mask-image:url('assets/mascara-tarjeta.png?v=1795376865-6f4da46');
-          mask-image:url('assets/mascara-tarjeta.png?v=1795376865-6f4da46');
+  -webkit-mask-image:url('assets/mascara-tarjeta.png?v=1795380190-700b63f');
+          mask-image:url('assets/mascara-tarjeta.png?v=1795380190-700b63f');
   -webkit-mask-size:100% 66.5072%;
           mask-size:100% 66.5072%;
   -webkit-mask-position:top left;  mask-position:top left;
@@ -462,7 +462,7 @@ main{ display:block; }
 /* costuras de papel rasgado entre secciones */
 .costura{
   position:absolute; top:-2px; left:0; width:100%; height:clamp(26px,6.4vw,40px);
-  background:url('assets/tira-papel.webp?v=1795376865-6f4da46') center bottom / 100% 100% no-repeat;
+  background:url('assets/tira-papel.webp?v=1795380190-700b63f') center bottom / 100% 100% no-repeat;
   z-index:1; pointer-events:none;
   filter: drop-shadow(0 3px 5px rgba(130,97,80,.1));
 }
@@ -1085,9 +1085,15 @@ body.anima .revela.visible{ opacity:1; transform:none; }
    la sección. */
 .ad-tela          { width:46%; bottom:-72px; right:-58px; opacity:.9; --giro:0deg; }
 
+/* Un grupo de estrellas abajo, para la sección del primer mensaje: ocupa una
+   pantalla entera con una sola frase en medio y se quedaba muy vacía por
+   abajo, que es lo que notó Soffia. */
+.ad-estrellas-abajo{ top:auto; bottom:30px; }
+
 .ad-brillo        { opacity:.78; }
 .ad-brillo-esferas{ width:42%; top:-34px;    left:-7%;  --giro:0deg; }
 .ad-brillo-globos { width:40%; bottom:-50px; right:-6%; --giro:0deg; }
+.ad-brillo-globo  { width:30%; bottom:-54px; right:-3%; --giro:0deg; }
 
 /* La flor de esta sección baja: a su altura de siempre quedaba exactamente al
    mismo nivel que las esferas, una en cada esquina, y dos cosas distintas
@@ -1189,3 +1195,38 @@ body.anima .revela.visible{ opacity:1; transform:none; }
   --marfil-papel:  #FDF7FA;
   --campo:         #EFE2E8;
 }
+
+/* ── Mi galería ───────────────────────────────────────────────────────────
+   Fotos apiladas a todo el ancho de la columna, no en cuadrícula: en un móvil
+   de 375 px, dos por fila las deja del tamaño de un sello. Cada una va con su
+   borde blanco y su sombra, como una foto impresa dejada sobre el papel, y
+   girada un pelo hacia un lado y otro: colocadas a escuadra parecen una
+   plantilla, y ese giro mínimo las hace parecer puestas a mano. */
+.galeria{
+  list-style:none; margin:34px 0 0; padding:0;
+  display:flex; flex-direction:column; gap:clamp(26px, 6vw, 38px);
+}
+.galeria li{
+  background: var(--blanco-calido);
+  padding: clamp(8px, 2.2vw, 12px);
+  box-shadow: 0 10px 26px -12px rgba(120,80,96,.34), 0 0 0 1px rgba(170,120,140,.10);
+  transform: rotate(var(--giro-foto, 0deg));
+  /* el giro va en el li y no en la img para que la sombra gire con la foto */
+}
+.galeria li:nth-child(odd) { --giro-foto: -1.2deg; }
+.galeria li:nth-child(even){ --giro-foto:  1.2deg; }
+.galeria img{
+  display:block; width:100%; height:auto;
+  /* la proporción la manda la foto: recortarlas todas a la misma deja a
+     alguien sin cabeza, y no sé qué va a mandar Soffia */
+}
+/* Entran escalonadas, como el resto. Se esconden SOLO bajo `body.anima`, la
+   clase que pone el JavaScript al arrancar el observador: si ese código no
+   llegara a correr, las fotos se ven igual en vez de quedarse invisibles para
+   siempre. Misma regla que el resto de la invitación. */
+.galeria li{
+  transition: opacity .9s var(--curva) var(--retraso,0s),
+              transform .9s var(--curva) var(--retraso,0s);
+}
+body.anima .galeria li{ opacity:0; transform: rotate(var(--giro-foto,0deg)) translateY(16px); }
+body.anima .galeria li.visible{ opacity:1; transform: rotate(var(--giro-foto,0deg)); }

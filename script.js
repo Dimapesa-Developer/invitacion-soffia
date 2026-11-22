@@ -48,7 +48,7 @@ let   abierto   = false;
    aparecen las letras encima. Los dos vídeos van en dos elementos distintos:
    el segundo se precarga mientras corre el primero, así el corte entre ellos
    no parpadea (el último fotograma de uno es el primero del otro). */
-const VIDEOS = ['assets/apertura-1.mp4?v=1795376865-6f4da46', 'assets/apertura-2.mp4?v=1795376865-6f4da46'];
+const VIDEOS = ['assets/apertura-1.mp4?v=1795380190-700b63f', 'assets/apertura-2.mp4?v=1795380190-700b63f'];
 
 /* El texto va centrado sobre LA HOJA, no sobre la pantalla. La hoja cambia
    de tamaño y de sitio según la proporción del móvil, así que un porcentaje
@@ -411,6 +411,36 @@ seguro('fotografías', () => {
     img.src = fotos.portada; img.hidden = false;
     $('#retrato-vacio').remove();
   }
+
+  /* ── mi galería ──
+     La sección va oculta mientras no haya fotos: una galería vacía es peor
+     que ninguna galería. En vista previa sí se enseña, con su marcador, para
+     poder ver dónde cae sin tener todavía las fotos. */
+  const seccion = $('#galeria'), lista = $('#galeria-fotos');
+  const momentos = Array.isArray(fotos.momentos) ? fotos.momentos.filter(Boolean) : [];
+  if (seccion && lista) {
+    if (momentos.length) {
+      seccion.hidden = false;
+      momentos.forEach((ruta, i) => {
+        const li = document.createElement('li');
+        /* El retraso va por foto y no por la lista entera: así entran una
+           detrás de otra al llegar, en vez de todas de golpe. */
+        li.style.setProperty('--retraso', (i % 3) * 0.12 + 's');
+        const img = document.createElement('img');
+        img.src = ruta;
+        img.loading = 'lazy';
+        img.decoding = 'async';
+        img.alt = '';                      // decorativas: el nombre ya está dicho
+        /* Si una falta, se quita su hueco en vez de dejar el marco vacío. */
+        img.addEventListener('error', () => li.remove());
+        li.appendChild(img);
+        lista.appendChild(li);
+      });
+    } else if (PREVIA) {
+      seccion.hidden = false;
+      lista.after(chip('Aquí van las fotos de Soffia'));
+    }
+  }
 });
 
 seguro('confirmación', () => {
@@ -543,6 +573,10 @@ seguro('revelados', () => {
     }
   }, { rootMargin: '0px 0px -12% 0px', threshold: 0.12 });
   $$('.revela').forEach(el => ojo.observe(el));
+  /* Las fotos de la galería no pueden llevar `.revela`: esa regla acaba en
+     `transform:none` al aparecer y les borraría el giro. Se vigilan igual,
+     pero con su propia transición. */
+  $$('.galeria li').forEach(el => ojo.observe(el));
 
   /* Red de seguridad: si el observer no llegara a disparar nunca, a los 4 s se
      muestra todo. Vale más verlo sin animación que no verlo. */
