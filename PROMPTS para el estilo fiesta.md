@@ -38,14 +38,10 @@ A length of soft crumpled pink tissue fabric draped diagonally across one corner
 
 ---
 
-## 4 · El fondo que tapa su foto
-
-El muro de lentejuelas que hice se ve mal a tamaño real: los discos salen
-enormes y duros. Este está tomado de lejos, así que al ampliarlo sigue siendo
-textura y no objetos.
+## 4 · El telón que tapa su foto
 
 ```
-A soft out-of-focus background of fine glitter bokeh seen from far away, filling the entire frame edge to edge with no gaps and reaching all four corners. Hundreds of tiny blurred circles of light in blush pink, deep pink, rose gold and champagne silver, densely packed and overlapping, with a few slightly sharper sparkles among them. Very fine grain, like a photograph of a glitter curtain taken with a long lens. No single focal point, no large shapes, nothing in sharp focus. Opaque image, no transparency needed. No text, no letters, no numbers, no watermark, no frame, no people, no hands. Palette strictly limited to blush pink #F0C9C7, antique rose #D98E92, deep pink #C9557E, rose gold #CC967D, champagne silver #D9D4D0 and warm ivory #FBF3E9. 2048 x 2048 px, square.
+A party fringe curtain made of long thin vertical metallic foil strips hanging side by side from a straight rail at the top, photographed straight on. The strips are narrow and close together, shiny rose gold, blush pink and champagne silver mixed, each one catching the light differently so some read bright and others in shadow, with a few twisting slightly so they show their edge. The strips hang all the way down and end at clearly uneven lengths, so the bottom is a ragged fringe. The strips fill the entire width of the frame from edge to edge with no gaps and no background showing between them. The rail is cut off by the top edge of the frame. Transparent background below the fringe ends, PNG with alpha channel; if transparency is not available, use a pure flat white background with no shadow and no gradient. Soft diffused light from the upper left, no hard shadows, no cast shadow under the strips. No text, no letters, no numbers, no watermark, no frame, no people, no hands. Palette strictly limited to blush pink #F0C9C7, antique rose #D98E92, deep pink #C9557E, rose gold #CC967D, champagne silver #D9D4D0 and warm ivory #FBF3E9. 2048 x 2048 px, square.
 ```
 
 ---
