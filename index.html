@@ -14,7 +14,7 @@
 <!-- El estilo se decide antes de pintar nada: si se pusiera desde script.js
      se vería un parpadeo del estilo viejo al nuevo. Manda ?estilo= de la URL;
      si no, lo que diga datos.js (y por defecto, «papel»). -->
-<script src="datos.js?v=1795318058-7ebf141"></script>
+<script src="datos.js?v=1795371368-717bbb9"></script>
 <script>
   (function () {
     var p = new URLSearchParams(location.search).get('estilo');
@@ -25,7 +25,7 @@
   })();
 </script>
 <link rel="preload" as="image" href="assets/apertura-poster.webp">
-<link rel="stylesheet" href="styles.css?v=1795318058-7ebf141">
+<link rel="stylesheet" href="styles.css?v=1795371368-717bbb9">
 </head>
 <body class="sin-abrir">
 
@@ -102,6 +102,7 @@
 <!-- ══════════════ 2 · LA ILUSIÓN ══════════════ -->
 <section class="seccion s-nota" id="nota">
   <div class="costura costura-arriba invertida" aria-hidden="true"></div>
+  <img class="adorno ad-globo" src="assets/ad-globo.webp" alt="" aria-hidden="true" loading="lazy" data-parallax="0.08">
 
   <div class="envoltorio">
     <p class="parrafo-grande revela" id="msj-presentacion" style="--i:0"></p>
@@ -111,7 +112,6 @@
 <!-- ══════════════ 3 · SOFFIA ══════════════ -->
 <section class="seccion s-soffia" id="soffia">
   <div class="costura costura-arriba" aria-hidden="true"></div>
-  <img class="flor flor-soffia" src="assets/flor-rosa.webp" alt="" loading="lazy" data-parallax="0.09">
   <img class="adorno ad-brillo ad-brillo-esferas" src="assets/ad-brillo.webp" alt="" aria-hidden="true" loading="lazy" data-parallax="0.13">
   <img class="adorno ad-esferas" src="assets/ad-esferas.webp" alt="" aria-hidden="true" loading="lazy" data-parallax="0.10">
 
@@ -159,7 +159,7 @@
 <!-- ══════════════ 3 · CUÁNDO Y DÓNDE ══════════════ -->
 <section class="seccion s-cuando" id="cuando">
   <div class="costura costura-arriba invertida" aria-hidden="true"></div>
-  <img class="flor flor-cuando" src="assets/flor-ramo.webp" alt="" loading="lazy" data-parallax="0.07">
+  <img class="adorno ad-guirnalda" src="assets/ad-guirnalda.webp" alt="" aria-hidden="true" loading="lazy" data-parallax="0.11">
 
   <div class="envoltorio">
     <p class="antetitulo revela" style="--i:0">Cuándo</p>
@@ -180,6 +180,7 @@
 <!-- ══════════════ 4b · DÓNDE ══════════════ -->
 <section class="seccion s-donde" id="donde">
   <div class="costura costura-arriba" aria-hidden="true"></div>
+  <img class="adorno ad-perlas" src="assets/ad-perlas.webp" alt="" aria-hidden="true" loading="lazy" data-parallax="0.12">
 
   <div class="envoltorio">
     <p class="antetitulo revela" style="--i:0">Dónde</p>
@@ -192,7 +193,6 @@
 <!-- ══════════════ 4 · ITINERARIO ══════════════ -->
 <section class="seccion s-itinerario" id="itinerario">
   <div class="costura costura-arriba" aria-hidden="true"></div>
-  <img class="flor flor-itin" src="assets/flor-capullos.webp" alt="" loading="lazy" data-parallax="0.11">
   <img class="adorno ad-mono-a" src="assets/ad-mono-a.webp" alt="" aria-hidden="true" loading="lazy" data-parallax="0.10">
 
   <div class="envoltorio">
@@ -210,6 +210,7 @@
 <!-- ══════════════ 5 · VESTIMENTA ══════════════ -->
 <section class="seccion s-vestir" id="vestir" hidden>
   <div class="costura costura-arriba invertida" aria-hidden="true"></div>
+  <img class="adorno ad-cintas" src="assets/ad-cintas.webp" alt="" aria-hidden="true" loading="lazy" data-parallax="0.10">
 
   <div class="envoltorio">
     <div class="vestimenta" id="vestimenta" hidden></div>
@@ -270,6 +271,6 @@
   Vista previa
 </div>
 
-<script src="script.js?v=1795318058-7ebf141"></script>
+<script src="script.js?v=1795371368-717bbb9"></script>
 </body>
 </html>

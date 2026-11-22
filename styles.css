@@ -860,7 +860,8 @@ main{ display:block; }
      títulos; así se desliza tras ellos, que es como se mueve un pétalo de
      verdad sobre una hoja escrita. */
   position:fixed; z-index:1; left:50%; top:0;
-  width:clamp(54px, 14.5vw, 76px); aspect-ratio:1128/1048;
+  width:clamp(40px, 10.5vw, 56px); aspect-ratio:1/1;
+  opacity:.9;
   display:block;
   /* la sombra se apaga al posarse: la flor del cierre no proyecta ninguna */
   filter: drop-shadow(0 calc(5px * var(--sombra-rosa,1)) calc(11px * var(--sombra-rosa,1))
@@ -1014,6 +1015,16 @@ body.anima .revela.visible{ opacity:1; transform:none; }
    Va antes que su pieza en el documento, así que queda por debajo de ella.
    Es además lo que ata el recorte fotográfico al papel de acuarela: sin nada
    que los una, el metal se queda encima como una pegatina. */
+/* Las piezas que cuelgan van medidas por ALTO, no por ancho: son tiras largas
+   y estrechas, y atándolas al ancho se salían de la banda de arriba. El hilo
+   o la cinta se corta en el canto, así que cuelgan de la costura. */
+.ad-guirnalda { height:clamp(148px, 27vw, 178px); width:auto; top:-6px; left:5%;  --giro:0deg; }
+.ad-perlas    { height:clamp(142px, 26vw, 170px); width:auto; top:-6px; right:7%; --giro:0deg; }
+.ad-cintas    { height:clamp(140px, 25vw, 166px); width:auto; top:-6px; right:4%; --giro:0deg; }
+
+/* El globo sube, así que sale por el canto de abajo, como el racimo. */
+.ad-globo     { width:19%; bottom:-26px; right:6%; --giro:0deg; }
+
 .ad-brillo        { opacity:.78; }
 .ad-brillo-esferas{ width:42%; top:-34px;    left:-7%;  --giro:0deg; }
 .ad-brillo-globos { width:40%; bottom:-50px; right:-6%; --giro:0deg; }
@@ -1055,14 +1066,17 @@ body.anima .revela.visible{ opacity:1; transform:none; }
 }
 :root[data-estilo="fiesta"] .ad-mono-a,
 :root[data-estilo="fiesta"] .ad-mono-b,
-:root[data-estilo="fiesta"] .ad-globos{
+:root[data-estilo="fiesta"] .ad-globos,
+:root[data-estilo="fiesta"] .ad-globo,
+:root[data-estilo="fiesta"] .ad-guirnalda,
+:root[data-estilo="fiesta"] .ad-perlas,
+:root[data-estilo="fiesta"] .ad-cintas{
   filter: drop-shadow(0 5px 13px rgba(160,60,100,.17));
 }
 
 /* Las flores son las mismas en los dos estilos: aquí se les sube el tono
    para que no se queden pálidas al lado del rosa fuerte. */
-:root[data-estilo="fiesta"] .flor,
-:root[data-estilo="fiesta"] .petalo{
+:root[data-estilo="fiesta"] .flor{
   filter: saturate(1.22) contrast(1.03);
 }
 
