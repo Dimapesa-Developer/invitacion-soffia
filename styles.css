@@ -71,7 +71,7 @@ body{
 body::before{
   content:''; position:fixed; inset:0; z-index:9;
   pointer-events:none;
-  background:url('assets/papel-marfil.webp?v=1795373914-2f91c5d') repeat;
+  background:url('assets/papel-marfil.webp?v=1795374507-0600d23') repeat;
   background-size:360px 360px;
   opacity:.5; mix-blend-mode:multiply;
 }
@@ -218,8 +218,8 @@ body.hoja-posada-lista .hoja-posada img{ opacity:1; transform:none; }
 /* la máscara deja ver la tarjeta solo por encima de la V de la solapa */
 .marco-tarjeta{
   position:absolute; inset:0; display:block;
-  -webkit-mask-image:url('assets/mascara-tarjeta.png?v=1795373914-2f91c5d');
-          mask-image:url('assets/mascara-tarjeta.png?v=1795373914-2f91c5d');
+  -webkit-mask-image:url('assets/mascara-tarjeta.png?v=1795374507-0600d23');
+          mask-image:url('assets/mascara-tarjeta.png?v=1795374507-0600d23');
   -webkit-mask-size:100% 66.5072%;
           mask-size:100% 66.5072%;
   -webkit-mask-position:top left;  mask-position:top left;
@@ -425,7 +425,7 @@ main{ display:block; }
 /* costuras de papel rasgado entre secciones */
 .costura{
   position:absolute; top:-2px; left:0; width:100%; height:clamp(26px,6.4vw,40px);
-  background:url('assets/tira-papel.webp?v=1795373914-2f91c5d') center bottom / 100% 100% no-repeat;
+  background:url('assets/tira-papel.webp?v=1795374507-0600d23') center bottom / 100% 100% no-repeat;
   z-index:1; pointer-events:none;
   filter: drop-shadow(0 3px 5px rgba(130,97,80,.1));
 }
@@ -1039,9 +1039,14 @@ body.anima .revela.visible{ opacity:1; transform:none; }
    sticky y sube por delante, así que cualquier adorno anclado a la sección
    acaba cruzando el nombre. Ya tiene el racimo de espejo y el halo. */
 
-/* La tela entra por la esquina y se va fuera de cuadro: el corte recto que
-   trae la lámina queda siempre fuera. */
-.ad-tela          { width:44%; bottom:-6%; right:-13%; --giro:0deg; opacity:.85; }
+/* La tela sale por la esquina de abajo a la derecha, y la lámina va volteada
+   en vertical para que sus dos cantos cortados —arriba y la derecha en el
+   original— caigan justo ahí. Los recorta el canto de la columna y el final
+   de la página, que ya son bordes de verdad: no hace falta difuminar nada, y
+   lo que queda a la vista es el pliegue entero.
+   En píxeles y no en %, para que el trozo que asoma no cambie con el alto de
+   la sección. */
+.ad-tela          { width:46%; bottom:-72px; right:-58px; opacity:.9; --giro:0deg; }
 
 .ad-brillo        { opacity:.78; }
 .ad-brillo-esferas{ width:42%; top:-34px;    left:-7%;  --giro:0deg; }
@@ -1131,7 +1136,11 @@ body.anima .revela.visible{ opacity:1; transform:none; }
      la página. `clip` y no `hidden`: `hidden` convierte la sección en un
      contenedor de scroll y la escena de Soffia, que va pegada con sticky,
      dejaría de pegarse. `clip` recorta sin tocar el scroll. */
-  overflow-x: clip;
+  /* `clip` en los DOS ejes. Con `overflow-x` solo, el navegador recorta a lo
+     ancho pero deja pasar lo que sobra por abajo, y la tela se salía del
+     papel. `clip` no crea contenedor de scroll, así que la escena de Soffia
+     sigue pegándose. */
+  overflow: clip;
 }
 
 /* El papel se va casi al blanco. En la referencia que eligió Soffia el fondo
