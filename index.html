@@ -11,10 +11,10 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500&family=Great+Vibes&display=swap">
-<!-- El estilo se decide antes de pintar nada: si se pusiera desde script.js?v=1795371515-8528ccc
+<!-- El estilo se decide antes de pintar nada: si se pusiera desde script.js?v=1795372016-e877f73
      se vería un parpadeo del estilo viejo al nuevo. Manda ?estilo= de la URL;
-     si no, lo que diga datos.js?v=1795371515-8528ccc (y por defecto, «papel»). -->
-<script src="datos.js?v=1795371515-8528ccc"></script>
+     si no, lo que diga datos.js?v=1795372016-e877f73 (y por defecto, «papel»). -->
+<script src="datos.js?v=1795372016-e877f73"></script>
 <script>
   (function () {
     var p = new URLSearchParams(location.search).get('estilo');
@@ -24,8 +24,8 @@
     if (e) try { sessionStorage.setItem('estilo', e); } catch (x) {}
   })();
 </script>
-<link rel="preload" as="image" href="assets/apertura-poster.webp?v=1795371515-8528ccc">
-<link rel="stylesheet" href="styles.css?v=1795371515-8528ccc">
+<link rel="preload" as="image" href="assets/apertura-poster.webp?v=1795372016-e877f73">
+<link rel="stylesheet" href="styles.css?v=1795372016-e877f73">
 </head>
 <body class="sin-abrir">
 
@@ -39,21 +39,21 @@
             aria-label="Abrir la invitación de Soffia">
      <span class="lienzo">
       <!-- 1 · el sobre cerrado, quieto, hasta que tocan -->
-      <img class="capa" id="capa-poster" src="assets/apertura-poster.webp?v=1795371515-8528ccc" alt=""
+      <img class="capa" id="capa-poster" src="assets/apertura-poster.webp?v=1795372016-e877f73" alt=""
            width="1080" height="1920" fetchpriority="high">
 
       <!-- 2 · los dos vídeos, uno detrás de otro. Son dos elementos y no uno
            con la fuente cambiada: así el segundo ya está descargado y pintado
            cuando acaba el primero, y el corte no parpadea. -->
       <video class="capa" id="video-1" muted playsinline preload="auto"
-             aria-hidden="true" src="assets/apertura-1.mp4?v=1795371515-8528ccc"></video>
+             aria-hidden="true" src="assets/apertura-1.mp4?v=1795372016-e877f73"></video>
       <video class="capa" id="video-2" muted playsinline preload="none"
              aria-hidden="true"></video>
 
       <!-- 3 · la hoja: es el último fotograma del segundo vídeo, así que el
            relevo no se ve. Hace falta porque el navegador tira la imagen de un
            vídeo pausado al salir de pantalla y al volver dibuja la primera. -->
-      <img class="capa" id="capa-final" src="assets/apertura-final.webp?v=1795371515-8528ccc" alt=""
+      <img class="capa" id="capa-final" src="assets/apertura-final.webp?v=1795372016-e877f73" alt=""
            width="1080" height="1920" fetchpriority="low">
 
       <!-- 3b · y la hoja se asienta: el fotograma del vídeo recorta un 18 %
@@ -61,7 +61,7 @@
            entera y entra creciendo hacia su tamaño real, así que el reencuadre
            se lee como el papel posándose y no como un salto. -->
       <span class="capa hoja-posada" id="hoja-posada" aria-hidden="true">
-        <img src="assets/hoja.webp?v=1795371515-8528ccc" alt="" width="720" height="1168"
+        <img src="assets/hoja.webp?v=1795372016-e877f73" alt="" width="720" height="1168"
              fetchpriority="low">
       </span>
 
@@ -102,7 +102,7 @@
 <!-- ══════════════ 2 · LA ILUSIÓN ══════════════ -->
 <section class="seccion s-nota" id="nota">
   <div class="costura costura-arriba invertida" aria-hidden="true"></div>
-  <img class="adorno ad-globo" src="assets/ad-globo.webp?v=1795371515-8528ccc" alt="" aria-hidden="true" loading="lazy" data-parallax="0.08">
+  <img class="adorno ad-globo" src="assets/ad-globo.webp?v=1795372016-e877f73" alt="" aria-hidden="true" loading="lazy" data-parallax="0.08">
 
   <div class="envoltorio">
     <p class="parrafo-grande revela" id="msj-presentacion" style="--i:0"></p>
@@ -112,8 +112,8 @@
 <!-- ══════════════ 3 · SOFFIA ══════════════ -->
 <section class="seccion s-soffia" id="soffia">
   <div class="costura costura-arriba" aria-hidden="true"></div>
-  <img class="adorno ad-brillo ad-brillo-esferas" src="assets/ad-brillo.webp?v=1795371515-8528ccc" alt="" aria-hidden="true" loading="lazy" data-parallax="0.13">
-  <img class="adorno ad-esferas" src="assets/ad-esferas.webp?v=1795371515-8528ccc" alt="" aria-hidden="true" loading="lazy" data-parallax="0.10">
+  <img class="adorno ad-brillo ad-brillo-esferas" src="assets/ad-brillo.webp?v=1795372016-e877f73" alt="" aria-hidden="true" loading="lazy" data-parallax="0.13">
+  <img class="adorno ad-esferas" src="assets/ad-esferas.webp?v=1795372016-e877f73" alt="" aria-hidden="true" loading="lazy" data-parallax="0.10">
 
   <!-- el puente: lo último que se lee antes de que se abran las rosas -->
   <div class="envoltorio">
@@ -130,13 +130,13 @@
     <div class="retrato-marco">
       <img id="foto-portada" alt="Fotografía de Soffia" hidden>
       <div class="retrato-vacio" id="retrato-vacio">
-        <img src="assets/flor-hojas.webp?v=1795371515-8528ccc" alt="" loading="lazy">
+        <img src="assets/flor-hojas.webp?v=1795372016-e877f73" alt="" loading="lazy">
         <p>Aquí irá la fotografía de Soffia</p>
       </div>
       <!-- tres paneles de rosas: arriba sube, izquierda y derecha se abren -->
-      <img class="velo velo-arriba" src="assets/panel-arriba.webp?v=1795371515-8528ccc" alt="" loading="lazy">
-      <img class="velo velo-izq" src="assets/panel-izq.webp?v=1795371515-8528ccc" alt="" loading="lazy">
-      <img class="velo velo-der" src="assets/panel-der.webp?v=1795371515-8528ccc" alt="" loading="lazy">
+      <img class="velo velo-arriba" src="assets/panel-arriba.webp?v=1795372016-e877f73" alt="" loading="lazy">
+      <img class="velo velo-izq" src="assets/panel-izq.webp?v=1795372016-e877f73" alt="" loading="lazy">
+      <img class="velo velo-der" src="assets/panel-der.webp?v=1795372016-e877f73" alt="" loading="lazy">
     </div>
     <span class="costura costura-foto arriba" aria-hidden="true"></span>
     <span class="costura costura-foto abajo" aria-hidden="true"></span>
@@ -159,7 +159,7 @@
 <!-- ══════════════ 3 · CUÁNDO Y DÓNDE ══════════════ -->
 <section class="seccion s-cuando" id="cuando">
   <div class="costura costura-arriba invertida" aria-hidden="true"></div>
-  <img class="adorno ad-guirnalda" src="assets/ad-guirnalda.webp?v=1795371515-8528ccc" alt="" aria-hidden="true" loading="lazy" data-parallax="0.11">
+  <img class="adorno ad-guirnalda" src="assets/ad-guirnalda.webp?v=1795372016-e877f73" alt="" aria-hidden="true" loading="lazy" data-parallax="0.11">
 
   <div class="envoltorio">
     <p class="antetitulo revela" style="--i:0">Cuándo</p>
@@ -180,7 +180,7 @@
 <!-- ══════════════ 4b · DÓNDE ══════════════ -->
 <section class="seccion s-donde" id="donde">
   <div class="costura costura-arriba" aria-hidden="true"></div>
-  <img class="adorno ad-perlas" src="assets/ad-perlas.webp?v=1795371515-8528ccc" alt="" aria-hidden="true" loading="lazy" data-parallax="0.12">
+  <img class="adorno ad-perlas" src="assets/ad-perlas.webp?v=1795372016-e877f73" alt="" aria-hidden="true" loading="lazy" data-parallax="0.12">
 
   <div class="envoltorio">
     <p class="antetitulo revela" style="--i:0">Dónde</p>
@@ -193,7 +193,7 @@
 <!-- ══════════════ 4 · ITINERARIO ══════════════ -->
 <section class="seccion s-itinerario" id="itinerario">
   <div class="costura costura-arriba" aria-hidden="true"></div>
-  <img class="adorno ad-mono-a" src="assets/ad-mono-a.webp?v=1795371515-8528ccc" alt="" aria-hidden="true" loading="lazy" data-parallax="0.10">
+  <img class="adorno ad-mono-a" src="assets/ad-mono-a.webp?v=1795372016-e877f73" alt="" aria-hidden="true" loading="lazy" data-parallax="0.10">
 
   <div class="envoltorio">
     <p class="antetitulo revela" style="--i:0">Así celebraremos</p>
@@ -210,7 +210,7 @@
 <!-- ══════════════ 5 · VESTIMENTA ══════════════ -->
 <section class="seccion s-vestir" id="vestir" hidden>
   <div class="costura costura-arriba invertida" aria-hidden="true"></div>
-  <img class="adorno ad-cintas" src="assets/ad-cintas.webp?v=1795371515-8528ccc" alt="" aria-hidden="true" loading="lazy" data-parallax="0.10">
+  <img class="adorno ad-cintas" src="assets/ad-cintas.webp?v=1795372016-e877f73" alt="" aria-hidden="true" loading="lazy" data-parallax="0.10">
 
   <div class="envoltorio">
     <div class="vestimenta" id="vestimenta" hidden></div>
@@ -220,8 +220,8 @@
 <!-- ══════════════ 6 · CONFIRMACIÓN ══════════════ -->
 <section class="seccion s-confirmar" id="confirmar">
   <div class="costura costura-arriba" aria-hidden="true"></div>
-  <img class="adorno ad-brillo ad-brillo-globos" src="assets/ad-brillo.webp?v=1795371515-8528ccc" alt="" aria-hidden="true" loading="lazy" data-parallax="0.13">
-  <img class="adorno ad-globos" src="assets/ad-globos.webp?v=1795371515-8528ccc" alt="" aria-hidden="true" loading="lazy" data-parallax="0.09">
+  <img class="adorno ad-brillo ad-brillo-globos" src="assets/ad-brillo.webp?v=1795372016-e877f73" alt="" aria-hidden="true" loading="lazy" data-parallax="0.13">
+  <img class="adorno ad-globos" src="assets/ad-globos.webp?v=1795372016-e877f73" alt="" aria-hidden="true" loading="lazy" data-parallax="0.09">
 
   <div class="envoltorio">
     <p class="antetitulo revela" style="--i:0">Nos vemos en mis XV</p>
@@ -233,13 +233,13 @@
 <!-- ══════════════ 7 · DESPEDIDA ══════════════ -->
 <section class="seccion s-cierre" id="cierre">
   <div class="costura costura-arriba invertida" aria-hidden="true"></div>
-  <img class="adorno ad-mono-b" src="assets/ad-mono-b.webp?v=1795371515-8528ccc" alt="" aria-hidden="true" loading="lazy" data-parallax="0.10">
+  <img class="adorno ad-mono-b" src="assets/ad-mono-b.webp?v=1795372016-e877f73" alt="" aria-hidden="true" loading="lazy" data-parallax="0.10">
   <!-- el cierre se monta en tres piezas: la rosa donde aterriza la que cae,
        y el follaje de cada lado, que sale de detrás cuando ya está posada -->
   <span class="flor flor-cierre-b" aria-hidden="true" data-parallax="0.09">
-    <img class="cierre-hoja cierre-izq" src="assets/flor-bajo-izq.webp?v=1795371515-8528ccc" alt="" loading="lazy">
-    <img class="cierre-hoja cierre-der" src="assets/flor-bajo-der.webp?v=1795371515-8528ccc" alt="" loading="lazy">
-    <img class="cierre-rosa" src="assets/flor-bajo-rosa.webp?v=1795371515-8528ccc" alt="" loading="lazy">
+    <img class="cierre-hoja cierre-izq" src="assets/flor-bajo-izq.webp?v=1795372016-e877f73" alt="" loading="lazy">
+    <img class="cierre-hoja cierre-der" src="assets/flor-bajo-der.webp?v=1795372016-e877f73" alt="" loading="lazy">
+    <img class="cierre-rosa" src="assets/flor-bajo-rosa.webp?v=1795372016-e877f73" alt="" loading="lazy">
   </span>
 
   <div class="envoltorio">
@@ -257,9 +257,9 @@
 
 <!-- la rosa que se desprende de la tarjeta y baja con el scroll -->
 <span class="petalo" id="petalo" aria-hidden="true">
-  <img class="petalo-cara" id="rosa-frente" src="assets/rosa-frente.webp?v=1795371515-8528ccc" alt="">
-  <img class="petalo-cara" id="rosa-tres"   src="assets/rosa-tres.webp?v=1795371515-8528ccc"   alt="">
-  <img class="petalo-cara" id="rosa-perfil" src="assets/rosa-perfil.webp?v=1795371515-8528ccc" alt="">
+  <img class="petalo-cara" id="rosa-frente" src="assets/rosa-frente.webp?v=1795372016-e877f73" alt="">
+  <img class="petalo-cara" id="rosa-tres"   src="assets/rosa-tres.webp?v=1795372016-e877f73"   alt="">
+  <img class="petalo-cara" id="rosa-perfil" src="assets/rosa-perfil.webp?v=1795372016-e877f73" alt="">
 </span>
 
 <button type="button" class="audio" id="audio" hidden aria-pressed="false"
@@ -271,6 +271,6 @@
   Vista previa
 </div>
 
-<script src="script.js?v=1795371515-8528ccc"></script>
+<script src="script.js?v=1795372016-e877f73"></script>
 </body>
 </html>
