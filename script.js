@@ -790,11 +790,23 @@ function flotarPetalo(vh) {
   /* vuelta y media en todo el viaje: frente → tres cuartos → perfil → frente,
      y al posarse se queda de frente, como la flor del cierre */
   const fase = (g * 1.5) % 1;
+  /* El relevo entre caras es corto: antes cada una se fundía con la siguiente
+     durante todo su tercio, de modo que casi siempre había dos superpuestas a
+     media opacidad. Con las vistas de antes eso leía como un fotograma
+     intermedio del giro; con estas tres, que comparten silueta y son pálidas,
+     las dos se cancelaban y la flor se veía como una mancha rosa.
+     Ahora cada cara manda sola durante su tercio y solo se cruzan al final. */
+  const CRUCE = 0.035;              // ancho del relevo, en fracción de vuelta
   for (let i = 0; i < caras.length; i++) {
     if (!caras[i]) continue;
     let d = Math.abs(fase - i / 3);
     d = Math.min(d, 1 - d);
-    const v = Math.max(0, 1 - d * 3) * (1 - posada) + (i === 0 ? posada : 0);
+    /* El relevo se mide contra el punto medio entre caras (1/6), no contra la
+       cara siguiente: puesto en cada cara por separado, a mitad de camino las
+       dos cumplían el umbral y se veían dos flores a la vez. Así las dos
+       opacidades siempre suman 1 y solo se cruzan dentro de esa ventana. */
+    const giro = Math.max(0, Math.min(1, (1 / 6 - d) / CRUCE + 0.5));
+    const v = giro * (1 - posada) + (i === 0 ? posada : 0);
     caras[i].style.opacity = v.toFixed(3);
   }
 }

@@ -84,3 +84,50 @@ Three separate watercolor paintings of the same single ranunculus bloom, seen fr
 
 **Por qué tres ángulos:** la rosa gira mientras cae. Con una sola imagen se vería
 plana, como una calcomanía girando sobre sí misma.
+
+---
+
+# La apertura: lo único que sigue siendo el arte viejo
+
+Lo vi en tu Chrome, abriendo la invitación como la abriría Soffia. **Los
+primeros once segundos siguen siendo las rosas que ella rechazó**, y es la
+primera pantalla completa que ve.
+
+Comprobé si bastaba con cambiar la hoja que se queda al final: no. El último
+fotograma del vídeo y esa hoja son la misma lámina, píxel por píxel —por eso el
+relevo no se nota—, así que cambiar solo la hoja haría que las flores cambiaran
+de especie a la vista. La apertura es una pieza entera: o se rehace toda o se
+queda como está.
+
+Son **dos vídeos encadenados**, los dos de **810 × 1440 px a 24 fps**:
+
+| | Dura | Qué pasa |
+|---|---|---|
+| 1 | 3,9 s | Sobre rosa cerrado con sello de lacre. Se abre y la tarjeta empieza a salir |
+| 2 | 3,3 s | La tarjeta acaba de salir y la cámara se acerca hasta que la hoja llena el cuadro |
+
+Tú solo tienes que generar los dos vídeos. **Las imágenes fijas las saco yo de
+ellos**, así encajan exactas y el relevo sigue sin verse.
+
+## 9 · Vídeo 1 · el sobre se abre
+
+```
+Vertical video, 9:16. Top-down view of a blush pink envelope lying on warm ivory cotton paper, lit softly from the upper left. A rose gold wax seal holds the flap closed. The flap lifts open and a deckle-edged ivory card begins to rise out of the envelope. The card is decorated with loose watercolor garden flowers in the upper left and lower right corners: ranunculus with layered petals, open cosmos and a single peony, in fresh saturated pink from pale blush to deep raspberry, with soft sage green leaves. The centre of the card stays completely empty. Slow, calm, elegant camera. No text, no letters, no numbers, no hands, no people.
+```
+
+## 10 · Vídeo 2 · la hoja llena el cuadro
+
+```
+Vertical video, 9:16. Continuation of the same scene, same lighting and same top-down angle: a deckle-edged ivory card rising out of a blush pink envelope on warm ivory cotton paper. The card finishes rising and the camera moves slowly closer until the card fills the whole frame and the envelope is out of view. The card is decorated with loose watercolor garden flowers in the upper left and lower right corners: ranunculus with layered petals, open cosmos and a single peony, in fresh saturated pink from pale blush to deep raspberry, with soft sage green leaves. The centre of the card stays completely empty. The movement ends still, with the card filling the frame. No text, no letters, no numbers, no hands, no people.
+```
+
+**Lo que no puede faltar**, porque de ello depende que funcione:
+
+- **El centro de la hoja, vacío.** Ahí va el nombre en HTML. Si el generador
+  mete una flor en medio, la letra le cae encima.
+- **Flores solo en dos esquinas opuestas**, arriba izquierda y abajo derecha,
+  como ahora.
+- **El vídeo 2 tiene que acabar quieto**, con la hoja llenando el cuadro. Ese
+  fotograma es el que se queda en pantalla mientras aparece el nombre.
+- **La misma luz en los dos**, suave y desde arriba a la izquierda. Si cambia
+  entre uno y otro, el corte se ve.
