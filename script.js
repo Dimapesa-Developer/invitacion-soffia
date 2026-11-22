@@ -67,12 +67,12 @@ function encajarPortada() {
   const pt = parseFloat(cs.paddingTop)   || 0, pb = parseFloat(cs.paddingBottom) || 0;
   const bw = aw - pl - pr, bh = ah - pt - pb;
   if (bw <= 0 || bh <= 0) return;
-  const e  = Math.min(bw / 909, bh / 1243);      // la hoja, en su tamaño real
-  const hw = 909 * e, hh = 1243 * e;
+  const e  = Math.min(bw / 720, bh / 1168);      // la hoja, en su tamaño real
+  const hw = 720 * e, hh = 1168 * e;
   const hx = pl + (bw - hw) / 2, hy = pt + (bh - hh) / 2;
   carta.style.left  = (hx + hw * 0.11).toFixed(1) + 'px';
   carta.style.width = (hw * 0.78).toFixed(1) + 'px';
-  carta.style.top   = (hy + hh * 0.33).toFixed(1) + 'px';
+  carta.style.top   = (hy + hh * 0.47).toFixed(1) + 'px';
   /* y el cuerpo de las letras se mide con la HOJA, no con la ventana: la
      columna está limitada a 480 px, así que en una pantalla ancha el texto
      crecía con la ventana mientras su caja se quedaba igual */

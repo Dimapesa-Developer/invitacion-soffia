@@ -201,6 +201,12 @@ body.abierto .escenario{ cursor:default; }
      En pantallas anchas la hoja crecía hasta meterse debajo del texto y se
      encimaban. Reservándola, no se tocan en ninguna proporción. */
   padding: 0 5px 20svh;
+  /* La hoja va dentro de una rejilla, y ahí `min-height` vale `auto`: el
+     navegador no deja que un elemento reemplazado baje de su altura propia,
+     así que el `height:100%` se ignoraba y la hoja se pasaba por debajo de
+     la banda reservada, tapando «Desliza». Con la hoja anterior, más ancha,
+     su altura propia cabía justa y el fallo no se veía. */
+  min-height: 0;
   opacity:0; transform: scale(1.26);
   transition: opacity .8s ease .5s, transform 1.3s var(--curva) .5s;
 }
